@@ -13,4 +13,5 @@ html, body {
     left: 0;
     height: 100vh; /* Full viewport height */
     width: 100vw;  /* Full viewport width */
+    z-index: 1;
 }
