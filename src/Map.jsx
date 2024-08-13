@@ -1,12 +1,12 @@
 import React from 'react';
-
+import './Map.css'; 
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 export default function Map() {
   return (
     <div className='MapBox'>
- <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true} style={{ height: '100vh', width: '100%' }}>
+ <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true} style={{ height: '100%', width: '85%' }}>
      <TileLayer
   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

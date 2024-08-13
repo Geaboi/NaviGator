@@ -8,7 +8,7 @@ export default function NavBar() {
 
     const handleAlgoChange = (value) => {
         setSelectedAlgo(value);
-        setErrorMessage(''); // Clear error message when a selection is made
+        setErrorMessage(''); 
     };
 
     const handleAnimateChange = () => {
@@ -16,17 +16,14 @@ export default function NavBar() {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+        e.preventDefault(); 
 
         if (!selectedAlgo) {
             setErrorMessage('Please select an algorithm.');
             return;
         }
-
-        // If validation passes
         console.log('Selected Algorithm:', selectedAlgo);
         console.log('Animate Selected:', animateSelected);
-        // Here you can add any logic for handling form submission, like API calls
     };
 
     return (
@@ -64,7 +61,6 @@ export default function NavBar() {
                     />
                 </label>
                 {errorMessage && <p className='error'>{errorMessage}</p>}
-                {/* Submit Button */}
                 <button type="submit">
                     Submit
                 </button>
