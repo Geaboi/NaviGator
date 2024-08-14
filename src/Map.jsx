@@ -71,7 +71,7 @@ export default function Map() {
         zoom={13}
         minZoom={7}
         scrollWheelZoom={true}
-        style={{ height: '993px', width: '1303px' }}
+        style={{ height: '993px', width: '1666px' }}
         maxBounds={floridaBounds}
         maxBoundsViscosity={1.0}
       >
