@@ -3,16 +3,11 @@ import './NavBar.css';
 
 export default function NavBar() {
     const [selectedAlgo, setSelectedAlgo] = useState(null);
-    const [animateSelected, setAnimateSelected] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleAlgoChange = (value) => {
         setSelectedAlgo(value);
         setErrorMessage(''); 
-    };
-
-    const handleAnimateChange = () => {
-        setAnimateSelected(!animateSelected);
     };
 
     const handleSubmit = (e) => {
@@ -22,8 +17,9 @@ export default function NavBar() {
             setErrorMessage('Please select an algorithm.');
             return;
         }
+
         console.log('Selected Algorithm:', selectedAlgo);
-        console.log('Animate Selected:', animateSelected);
+        console.log('Animate Selected: true');
     };
 
     return (
@@ -49,15 +45,6 @@ export default function NavBar() {
                         value='aStar'
                         checked={selectedAlgo === 'aStar'}
                         onChange={() => handleAlgoChange('aStar')}
-                    />
-                </label>
-                <label className='options'>
-                    Animate
-                    <input
-                        type='checkbox'
-                        name='animate'
-                        checked={animateSelected}
-                        onChange={handleAnimateChange}
                     />
                 </label>
                 {errorMessage && <p className='error'>{errorMessage}</p>}
