@@ -65,6 +65,7 @@ export default function Map() {
 
   return (
     <div className='MapBox'>
+
       <MapContainer
         center={[28.5384, -81.3789]}
         zoom={13}
@@ -102,6 +103,7 @@ export default function Map() {
           </Marker>
         )}
       </MapContainer>
+
     </div>
   );
 }
