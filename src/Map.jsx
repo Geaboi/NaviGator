@@ -4,9 +4,9 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaf
 import L from 'leaflet'; 
 
 export default function Map() {
-  const floridaBounds = [
-    [31.0000, -87.6349],
-    [24.3963, -80.0314]
+  const orlandoBounds = [
+    [28.6360, -81.5854],
+    [28.3852, -81.2150]
   ];
 
   
@@ -27,7 +27,7 @@ export default function Map() {
 
   const [markers, setMarkers] = useState({
     start: { position: [28.5384, -81.3789], visible: true },
-    end: { position: [28.5384, -81.3789], visible: true }
+    end: { position: [28.544,-81.320], visible: true }
   });
   const [activeMarker, setActiveMarker] = useState(null);
 
@@ -68,10 +68,10 @@ export default function Map() {
       <MapContainer
         center={[28.5384, -81.3789]}
         zoom={13}
-        minZoom={7}
+        minZoom={13}
         scrollWheelZoom={true}
-        style={{ height: '993px', width: '1303px' }}
-        maxBounds={floridaBounds}
+        style={{ height: '100%', width: '87%' }}
+        maxBounds={orlandoBounds}
         maxBoundsViscosity={1.0}
       >
         <TileLayer
