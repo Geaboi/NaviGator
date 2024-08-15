@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './NavBar.css';
+import { DataContext } from './App';
 
 export default function NavBar() {
     const [selectedAlgo, setSelectedAlgo] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
+    const { setData } = useContext(DataContext);
 
     const handleAlgoChange = (value) => {
         setSelectedAlgo(value);
@@ -19,8 +21,11 @@ export default function NavBar() {
         }
 
         console.log('Selected Algorithm:', selectedAlgo);
-        console.log('Animate Selected: true');
+
+    
+        setData(selectedAlgo);
     };
+
 
     return (
         <div className='bar'>
