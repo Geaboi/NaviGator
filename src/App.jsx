@@ -1,34 +1,18 @@
-import { useState, createContext } from 'react'
-import NavBar from './NavBar.jsx'
-import Map from './Map.jsx'
+import React, { useState } from 'react';
+import NavBar from './NavBar';
+import MapComponent from './Map';
 
-import './App.css'
+export default function App() {
+    const [selectedAlgorithm, setSelectedAlgorithm] = useState('dijkstra');
 
-// Create a new context and export
-export const DataContext = createContext();
- 
-// Create a Context Provider
-const DataContextProvider = ({ children }) => {
-    const [data, setData] = useState();
- 
+    const handleAlgorithmSubmit = (algorithm) => {
+        setSelectedAlgorithm(algorithm);
+    };
+
     return (
-        <DataContext.Provider value={{ data, setData }}>
-            {children}
-        </DataContext.Provider>
+        <div className="App">
+            <NavBar onAlgorithmSubmit={handleAlgorithmSubmit} />
+            <MapComponent selectedAlgorithm={selectedAlgorithm} />
+        </div>
     );
-};
-
-function App() {
-
-  return (
-    <>
-    <DataContextProvider>
-      <NavBar/>
-          <Map></Map>
-          <NavBar></NavBar>
-    </DataContextProvider>
-    </>
-  )
 }
-
-export default App
