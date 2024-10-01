@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './NavBar.css';
 
-export default function NavBar() {
-    const [selectedAlgo, setSelectedAlgo] = useState(null);
+export default function NavBar({ onAlgorithmSubmit }) {
+    const [selectedAlgo, setSelectedAlgo] = useState('dijkstra');
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleAlgoChange = (value) => {
         setSelectedAlgo(value);
-        setErrorMessage(''); 
+        setErrorMessage('');
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); 
-
+        e.preventDefault();
         if (!selectedAlgo) {
             setErrorMessage('Please select an algorithm.');
             return;
         }
-
-        console.log('Selected Algorithm:', selectedAlgo);
-        console.log('Animate Selected: true');
+        console.log("submission");
+        onAlgorithmSubmit(selectedAlgo);
     };
 
     return (
@@ -42,15 +40,13 @@ export default function NavBar() {
                     <input
                         type='radio'
                         name='algo'
-                        value='aStar'
-                        checked={selectedAlgo === 'aStar'}
-                        onChange={() => handleAlgoChange('aStar')}
+                        value='a_star'
+                        checked={selectedAlgo === 'a_star'}
+                        onChange={() => handleAlgoChange('a_star')}
                     />
                 </label>
                 {errorMessage && <p className='error'>{errorMessage}</p>}
-                <button type="submit">
-                    Submit
-                </button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     );

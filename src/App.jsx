@@ -1,16 +1,18 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
+import NavBar from './NavBar';
+import MapComponent from './Map';
 
-import './App.css'
+export default function App() {
+    const [selectedAlgorithm, setSelectedAlgorithm] = useState('dijkstra');
 
-function App() {
-  const [count, setCount] = useState(0)
+    const handleAlgorithmSubmit = (algorithm) => {
+        setSelectedAlgorithm(algorithm);
+    };
 
-  return (
-    <>
-    
-        
-    </>
-  )
+    return (
+        <div className="App">
+            <NavBar onAlgorithmSubmit={handleAlgorithmSubmit} />
+            <MapComponent selectedAlgorithm={selectedAlgorithm} />
+        </div>
+    );
 }
-
-export default App
