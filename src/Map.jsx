@@ -52,6 +52,8 @@ export default function MapComponent({ selectedAlgorithm }) {
             algorithm: selectedAlgorithm
         };
 
+        console.log('Sending payload:', payload); // Log the payload
+
         try {
             const response = await fetch('http://127.0.0.1:5000/get_shortest_path', {
                 method: 'POST',
@@ -75,7 +77,6 @@ export default function MapComponent({ selectedAlgorithm }) {
 
     useEffect(() => {
         if (selectedAlgorithm || activeMarker) {
-            console.log("part2");
             handleSubmit();
         }
     }, [selectedAlgorithm]);
